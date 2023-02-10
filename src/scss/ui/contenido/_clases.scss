@@ -1,0 +1,52 @@
+@use 'base/mixins' as mix;
+@use 'base/variables' as var;
+
+.clases{
+    background-color: var.$gris;
+    padding: 5rem 0;
+    &__heading{
+        @include mix.heading;
+    }
+
+    &__grid{
+        display: grid;
+        @include mix.tablet {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        @include mix.desktop {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+    }
+}
+
+.clase{
+   display: flex;
+   flex-direction: column;
+   border: 1px solid darken(var.$gris, 10%);
+   background-color: var.$blanco;
+
+   &__meta{
+        background-color: var.$primario;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        color: var.$blanco;
+        font-weight: 700;
+   }
+
+   &__contenido{
+    padding: 2rem;
+   }
+   &__descripcion{
+    color: var.$primario;
+    padding: 1rem 0
+   }
+   &__enlace{
+    @include mix.boton(var.$primario, var.$blanco);
+    display: block;
+   }
+}
